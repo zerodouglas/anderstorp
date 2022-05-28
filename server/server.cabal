@@ -1,0 +1,71 @@
+cabal-version:      2.4
+name:               server
+version:            0.1.0.0
+
+-- A short (one-line) description of the package.
+-- synopsis:
+
+-- A longer description of the package.
+-- description:
+
+-- A URL where users can report bugs.
+-- bug-reports:
+
+-- The license under which the package is released.
+-- license:
+author:             Douglas Phillips
+maintainer:         douglasphillips.eng@gmail.com
+
+-- A copyright notice.
+-- copyright:
+-- category:
+extra-source-files: CHANGELOG.md
+
+library
+    exposed-modules: Anderstorp
+                   , Report
+                   , Anderstorp.Types.API
+                   , Anderstorp.Server.API
+                   , Anderstorp.Types.Discord
+    other-modules: Paths_server
+    hs-source-dirs: src
+    build-depends: base
+                 , servant
+                 , servant-server
+                 , http-client
+                 , http-types
+                 , wai
+                 , time
+                 , text
+                 , bytestring
+                 , utf8-string
+                 , hoauth2
+                 , http-client-tls
+                 , warp
+                 , aeson
+    default-language: Haskell2010
+
+executable server
+    main-is:          Main.hs
+    other-modules: Paths_server
+
+    -- Modules included in this executable, other than Main.
+    -- other-modules:
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+    build-depends:    base
+                    , servant-server
+                    , http-client
+                    , http-types
+                    , server
+                    , http-client-tls
+                    , text
+                    , bytestring
+                    , hoauth2
+                    , time
+                    , wai
+                    , warp
+                    , aeson
+    hs-source-dirs:   app
+    default-language: Haskell2010
